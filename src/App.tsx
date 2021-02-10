@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { TaskItem } from './components/TaskItem/TaskItem'
+import './App.css'
+//import {initialStore} from '../src/redux/store'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="board board__main">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h1>Todo List</h1>
       </header>
+      <TaskItem text={'1'} urgency={1} />
     </div>
   );
 }
