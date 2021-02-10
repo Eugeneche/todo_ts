@@ -2,11 +2,12 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { TaskItem } from './components/TaskItem/TaskItem'
 import './App.css'
-//import {initialStore} from '../src/redux/store'
+import add from '../src/img/add.svg'
 
 const App = () => {
   return (
     <div className="board board__main">
+      <img src={add} className="board__add-img" />
       <header className="App-header">
        <h1>Todo List</h1>
       </header>
