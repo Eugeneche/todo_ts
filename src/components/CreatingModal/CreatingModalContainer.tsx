@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { CreatingModal } from './CreatingModal'
-import addTask from '../../reducers/taskReducer'
+import addTask from '../../redux/taskReducer'
 
 const mapDispatch = { addTask }
 

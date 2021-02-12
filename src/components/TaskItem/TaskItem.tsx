@@ -1,5 +1,7 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
+import { useState } from "react"
+import { TaskForm } from "../TaskForm/TaskForm"
 
 
 type taskProps = {
@@ -9,13 +11,18 @@ type taskProps = {
   }
 
 export const TaskItem = ({text, isCompleted, urgency}:taskProps) => {
-    return <div className="board__task-item">
-        <ul>
-            <li>{text}</li>
-            <li>{isCompleted}</li>
-            <li>{urgency}</li>
-        </ul>
-    </div>
+    const [mode, setMode] = useState(false)
+    return (
+        <div className="task-item">
+            {mode === true ? <TaskForm /> :
+            <ul>
+                <li>{text}</li>
+                <li>{isCompleted}</li>
+                <li>{urgency}</li>
+            </ul>
+            }
+        </div>
+    )
 }
 
 

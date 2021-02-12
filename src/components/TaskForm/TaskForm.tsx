@@ -2,14 +2,14 @@ import * as React from "react"
 import { useState } from "react"
 import { addTask } from "../../redux/taskReducer"
 
-export const CreatingModal = () => {
+export const TaskForm = () => {
 
     const [todoText, setTodoText] = useState('')
   
     const onChange = (e: any): void => setTodoText(e.target.value)
   
     return (
-      <div className='modal'>
+      <div className='task-item__form'>
         <form
           onSubmit={e => {
             e.preventDefault()

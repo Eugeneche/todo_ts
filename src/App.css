@@ -1,11 +1,4 @@
-.modal {
-  position: absolute;
-  top: 0; 
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #41414170;
-}
+
 
 .board {
   background-color: #f0e68c;
@@ -33,10 +26,14 @@
   transform: scale(1.05);
 }
 
-.board__task-item {
+.task-item {
   width: 90%;
   margin: auto;
   background-color: #7fffd4;
   border: 1px solid #808080;
   border-radius: 5px;
+}
+
+.task-item__form {
+  width: 90%;
 }

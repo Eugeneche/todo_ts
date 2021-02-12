@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-//const CREATE_NEW_TASK = 'CREATE_NEW_TASK'
-
-//type initialStateType: Array<todo>
-
 type todo = {
     id: string | null
     created: string | null
