@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useState } from "react"
-import { addTask } from "../../redux/taskReducer"
+import { addTask } from "../../redux/redux-toolkit"
 
 export const CreatingModal = () => {
 

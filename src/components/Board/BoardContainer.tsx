@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Board } from './Board'
-import addTask from '../../redux/taskReducer'
+import addTask from '../../redux/redux-toolkit'
 
 const mapDispatch = { addTask }
 

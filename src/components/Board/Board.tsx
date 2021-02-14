@@ -12,7 +12,7 @@ export const Board = () => {
       <header className="App-header">
        <h1>Todo List</h1>
       </header>
-      <TaskItem text={'1'} urgency={1} />
+      <TaskItem text={'Learn React'} urgency={1} />
     </div>
   );
 };

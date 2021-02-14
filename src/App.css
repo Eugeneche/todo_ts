@@ -32,6 +32,11 @@
   background-color: #7fffd4;
   border: 1px solid #808080;
   border-radius: 5px;
+  display: flex;
+}
+
+.task-item__text {
+  line-height: 50%;
 }
 
 .task-item__form {
