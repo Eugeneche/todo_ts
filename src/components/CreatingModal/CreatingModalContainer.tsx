@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { CreatingModal } from './CreatingModal'
-import addTask from '../../redux/redux-toolkit'
+import { addTask } from '../../redux/redux-toolkit'
+
 
 const mapDispatch = { addTask }
 

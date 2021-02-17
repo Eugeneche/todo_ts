@@ -9,16 +9,7 @@ type todo = {
     urgency: number | null
   }
 
-let initialState: Array<todo> = [
-  {
-    id: '2',
-    created: '23',
-    updated: '24',
-    text: 'cheer',
-    isCompleted: false,
-    urgency: 1
-  }
-]
+let initialState: Array<todo> = []
 
 let nextTodoId = 0
 
@@ -30,6 +21,7 @@ const tasksSlice = createSlice({
       reducer(state, action) {
         const { id, created, updated, text, isCompleted, urgency } = action.payload
         state.push({ id, created, updated, text, isCompleted: false, urgency })
+        console.log(text)
       },
       prepare(text): any {
         return {payload: {text, id: nextTodoId++}}

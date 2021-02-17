@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useState } from "react"
-import { addTask } from "../../redux/redux-toolkit"
+//import { addTask } from "./CreatingModalContainer"
 
-export const CreatingModal = () => {
+export const CreatingModal = (props: any) => {
 
     const [todoText, setTodoText] = useState('')
   
@@ -10,18 +10,23 @@ export const CreatingModal = () => {
   
     return (
       <div className='modal'>
-        <form
+        <form className='modal__form'
           onSubmit={e => {
             e.preventDefault()
             if (!todoText.trim()) {
               return
             }
-            addTask(todoText)
+            props.addTask(todoText)
             setTodoText('')
           }}
         >
-          <input value={todoText} onChange={onChange} />
-          <button type="submit">Add Todo</button>
+          <label>New task:
+            <textarea value={todoText} onChange={onChange} autoFocus />
+          </label>
+          <div className='modal__buttons'>
+            <button>Cancel</button>
+            <button type="submit">Add Todo</button>           
+          </div>
         </form>
       </div>
     )
