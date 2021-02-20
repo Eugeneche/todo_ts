@@ -26,6 +26,10 @@
   margin-left: 5%;
 }
 
+.board__divider {
+  margin: 20px 0;
+}
+
 .board__add-btn {
   height: 75px;
   width: 40px;
@@ -78,7 +82,7 @@
 }
 
 .modal__form textarea {
-  width: 96%;
+  width: 99%;
   height: 100px;
 }
 

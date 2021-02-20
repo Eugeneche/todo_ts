@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
 
-type todo = {
+export type todo = {
     id: string | null
     created: string | null
     updated: string | null
@@ -19,12 +19,12 @@ const tasksSlice = createSlice({
   reducers: {
     addTask: {
       reducer(state, action) {
-        const { id, created, updated, text, isCompleted, urgency } = action.payload
+        const { id, created, updated, text, isCompleted, urgency }: todo = action.payload
         state.push({ id, created, updated, text, isCompleted: false, urgency })
-        console.log(text)
       },
       prepare(text): any {
-        return {payload: {text, id: nextTodoId++}}
+        //is id really string? -- check!
+        return {payload: {text, id: (nextTodoId++).toString()}}
       }
     },
     updateTask(state, action) {
@@ -40,8 +40,13 @@ const tasksSlice = createSlice({
 export const { addTask, updateTask } = tasksSlice.actions
 
 export const store = configureStore({
-  reducer: tasksSlice.reducer,
+  reducer: {
+    addTask: tasksSlice.reducer
+  },
 })
+
+export type RootState = ReturnType<typeof store.getState>
+
 
 /* export const taskReducer = (state:initialStateType = initialState, action: createNewTaskActionType):initialStateType => {
     return initialState;

@@ -1,14 +1,14 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import {Board} from './components/Board/Board'
+import {BoardContainer} from './components/Board/BoardContainer'
 import './App.css'
 
-const App = () => {
+export const App = (props: any) => {
   return (
     <div className="app">
-      <Board />
+      <BoardContainer {...props} />
     </div>
   );
 }
 
-export default App;
+//export default App;
+//export {}
