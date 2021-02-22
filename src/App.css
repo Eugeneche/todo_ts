@@ -1,4 +1,7 @@
+button {
+  cursor: pointer;
 
+}
 
 .board {
   background-color: #f0e68c;
@@ -10,10 +13,9 @@
 .board__main {
   display: flex;
   flex-flow: column wrap;
-  
   margin: auto;
   max-width: 1100px;
-  height: 95vh;
+  min-height: 98vh;
 }
 
 .board__header {
@@ -24,24 +26,28 @@
 .board__title {
   height: 50px;
   margin-left: 5%;
+  flex-grow: 1;
 }
 
 .board__divider {
   margin: 20px 0;
 }
 
-.board__add-btn {
+.board__add-btn, .board__filter-btn {
   height: 75px;
-  width: 40px;
+  width: 50px;
   margin-right: 5%;
-  cursor: pointer;
   outline: none;
   border: none;
   padding: 0;
   background: none;
 }
 
-.board__add-img:hover {
+.board__add-btn:hover {
+  transform: scale(1.05);
+}
+
+.board__filter-btn:hover {
   transform: scale(1.05);
 }
 

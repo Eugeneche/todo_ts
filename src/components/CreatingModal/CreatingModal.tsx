@@ -7,6 +7,10 @@ export const CreatingModal = (props: any) => {
     const [todoText, setTodoText] = useState('')
   
     const onChange = (e: any): void => setTodoText(e.target.value)
+
+    const changeMode = () => {
+      props.setMode(false)
+    }
   
     return (
       <div className='modal'>
@@ -18,14 +22,15 @@ export const CreatingModal = (props: any) => {
             }
             props.addTask(todoText)
             setTodoText('')
+            changeMode()
           }}
         >
           <label>New task:
             <textarea value={todoText} onChange={onChange} autoFocus />
           </label>
           <div className='modal__buttons'>
-            <button>Cancel</button>
-            <button type="submit">Add Todo</button>           
+            <button onClick={changeMode}>Cancel</button>
+            <button type='submit'>Add Todo</button>           
           </div>
         </form>
       </div>
