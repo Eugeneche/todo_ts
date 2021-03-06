@@ -1,39 +1,58 @@
 const axios = require('axios').default
 
-/* const instance = axios.create({
-    baseURL: 'http://localhost:9000/api/',
-    headers: {'Content-Type': 'application/json'}
-  })
+const baseUrl = 'http://localhost:9000/api/'
+export const sessionId: null | string = null
 
-// Initialize a session
+export const sessionAPI = {
 
-axios#post(url[, data[, config]]) */
+  initSession() {
+    return axios.post(`${baseUrl}session`, {
+      "errorRate": 20
+    },
+    {
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then((response: any) => {
+      console.log(response);
+      return response
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    })
+  },
 
-// Initialize a session
-axios.post('http://localhost:9000/api/session', {
-    "errorRate": 20
+  deleteSession() {
+    return axios.delete(`${baseUrl}session`,
+    {
+      headers: {
+        'Content-Type':'application/json',
+        'sessionId':'session Id received from the POST endpoint'
+      }
+    })
+    .then(function (response: any) {
+      console.log(response);
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    })
+  }
+}
+
+
+/* axios.get('/user', {
+    params: {
+      ID: 12345
+    }
   })
   .then(function (response: any) {
     console.log(response);
   })
   .catch(function (error: any) {
     console.log(error);
-})
-
-axios.get('/user', {
-    params: {
-      ID: 12345
-    }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
   })
   .then(function () {
     // always executed
-})
+}) */
 
 
 

@@ -1,6 +1,4 @@
-import * as React from "react"
 import { useState } from "react"
-import { addTask } from "../../redux/redux-toolkit"
 
 export const TaskForm = () => {
 
@@ -16,7 +14,7 @@ export const TaskForm = () => {
             if (!todoText.trim()) {
               return
             }
-            addTask(todoText)
+            //addTask(todoText)
             setTodoText('')
           }}
         >

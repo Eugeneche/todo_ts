@@ -1,16 +1,19 @@
-import * as React from "react"
 import { useState } from "react"
-//import { addTask } from "./CreatingModalContainer"
+import { nanoid } from 'nanoid'
+import { useAppDispatch } from '../../hooks/hooks'
+import { addTask } from "../../redux/todosSlice"
 
 export const CreatingModal = (props: any) => {
 
     const [todoText, setTodoText] = useState('')
+    const dispatch = useAppDispatch()
   
     const onChange = (e: any): void => setTodoText(e.target.value)
 
     const changeMode = () => {
       props.setMode(false)
     }
+    const id = nanoid()
   
     return (
       <div className='modal'>
@@ -20,9 +23,15 @@ export const CreatingModal = (props: any) => {
             if (!todoText.trim()) {
               return
             }
-            props.addTask(todoText)
+            
+            dispatch(addTask({
+              id: id,
+              text: todoText,
+              isCompleted: false
+            }))
             setTodoText('')
             changeMode()
+
           }}
         >
           <label>New task:
