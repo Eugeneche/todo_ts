@@ -7,7 +7,7 @@ export const sessionAPI = {
 
   initSession() {
     return axios.post(`${baseUrl}session`, {
-      "errorRate": 20
+      "errorRate": 50
     },
     {
       headers: {'Content-Type': 'application/json'}
@@ -38,22 +38,27 @@ export const sessionAPI = {
   }
 }
 
+export const todosAPI = {
 
-/* axios.get('/user', {
-    params: {
-      ID: 12345
+  createTodo(text: string, isCompleted: boolean, urgency: number) {
+    return axios.post(`${baseUrl}todos`, {
+      text,
+      isCompleted,
+      urgency
+    },
+    {
+    headers: {
+      'Content-Type':'application/json',
+      'sessionId':'session Id received from the POST endpoint'
     }
   })
-  .then(function (response: any) {
-    console.log(response);
-  })
-  .catch(function (error: any) {
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-}) */
-
-
+    .then(function (response: any) {
+      console.log(response);
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    })
+  }
+}
 
 export {}

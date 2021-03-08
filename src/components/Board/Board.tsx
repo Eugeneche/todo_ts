@@ -21,7 +21,7 @@ export const Board = () => {
   if (propsTasks.length > 0) {
     tasksList = propsTasks.map((task: Todo) => {
       return <div key={task.id} className="board__divider">
-        <TaskItem id={task.id} text={task.text} isCompleted={task.isCompleted} />
+        <TaskItem id={task.id} text={task.text} isCompleted={task.isCompleted} urgency={task.urgency} />
       </div>})
   } 
 

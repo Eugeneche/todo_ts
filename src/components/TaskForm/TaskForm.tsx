@@ -14,7 +14,6 @@ export const TaskForm = () => {
             if (!todoText.trim()) {
               return
             }
-            //addTask(todoText)
             setTodoText('')
           }}
         >

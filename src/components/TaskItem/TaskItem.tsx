@@ -8,7 +8,12 @@ export const TaskItem = (props: Todo) => {
     return (
         <div className='task-item'>
             <div className='task-item__status'><img src={props.isCompleted ? done : inProgress} alt='task status' /></div>
+            <div className='task-item__text'>{props.urgency}</div>
             <div className='task-item__text'>{props.text}</div>
+
+            <div className='task-item__mode'>
+                
+            </div>
         </div>
     )
 }
