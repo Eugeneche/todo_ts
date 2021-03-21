@@ -1,7 +1,7 @@
 import { useState } from 'react'
 //import { nanoid } from 'nanoid'
 import { useAppDispatch } from '../../hooks/hooks'
-import { addTask, fetchNewTodo } from '../../redux/todosSlice'
+import { fetchNewTodo } from '../../redux/todosSlice'
 
 export const CreatingModal = (props: any) => {
 
@@ -30,11 +30,6 @@ export const CreatingModal = (props: any) => {
               isCompleted: false,
               urgency: +urgency
             }))
-            /* dispatch(addTask({
-              text: todoText,
-              isCompleted: false,
-              urgency: +urgency
-            })) */
             setTodoText('')
             changeMode()
           }}

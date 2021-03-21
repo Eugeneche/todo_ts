@@ -4,8 +4,8 @@ import initSlice from './initSlice'
 
 export const store = configureStore({
     reducer: {
-      addTask: todosSlice,
-      isInitialize: initSlice
+      taskList: todosSlice,
+      sessionId: initSlice
     },
   })
   

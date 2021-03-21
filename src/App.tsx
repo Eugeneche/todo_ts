@@ -1,23 +1,26 @@
 import * as React from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Board } from './components/Board/Board'
 import { useAppDispatch, useAppSelector } from './hooks/hooks'
+import { getSessionId } from './redux/initSlice'
 import './App.css'
-import { sessionAPI } from './api/api'
-//import { initializeApp } from './redux/initSlice'
+
 
 export const App = (props: any) => {
 
-  const isInitialize = useAppSelector(state => state.isInitialize)
+  let state = useAppSelector(state => state)
+  //const[sessionId, setId] = useState(state.sessionId)
+  
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    sessionAPI.initSession()
-  }, []);
-
+    dispatch(getSessionId());
+    console.log(dispatch(getSessionId()))
+  }, [])
+  
   return (
     <div className="app">
       <Board {...props} />
     </div>
-  );
-  }
+  )
+}

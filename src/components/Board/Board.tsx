@@ -2,24 +2,24 @@ import * as React from 'react'
 import { useState } from 'react'
 import { TaskItem } from '../TaskItem/TaskItem'
 import { CreatingModal } from '../CreatingModal/CreatingModal'
+import { Todo } from '../../redux/todosSlice'
+import { useAppSelector } from '../../hooks/hooks'
 import '../../App.css'
 import add from '../../img/add.svg'
 import filter from '../../img/filter.svg'
-import { Todo } from '../../redux/todosSlice'
-import { useAppSelector } from '../../hooks/hooks'
+
 
 
 export const Board = () => {
 
   const [mode, setMode] = useState(false)
 
-  const tasks = useAppSelector(state => state.addTask)
+  let tasks = useAppSelector(state => state.taskList)
   
-
-  const propsTasks = tasks 
-  let tasksList: Array<any> = []
-  if (propsTasks.length > 0) {
-    tasksList = propsTasks.map((task: Todo) => {
+  //const propsTasks = tasks
+  let mapTasks: Array<any> = []
+  if (tasks.length > 0) {
+    mapTasks = tasks.map((task: Todo) => {
       return <div key={task.id} className="board__divider">
         <TaskItem id={task.id} text={task.text} isCompleted={task.isCompleted} urgency={task.urgency} />
       </div>})
@@ -33,9 +33,8 @@ export const Board = () => {
         <button className="board__filter-btn"><img src={filter} alt="filter button"/></button>
         <button className="board__add-btn" onClick={() => setMode(true)}><img src={add} alt="add task button"/></button>            
       </header> 
-      <div className="board__tasks">
-        
-        {tasksList}
+      <div className="board__tasks">       
+        {mapTasks}
       </div>
     </div>
   );
