@@ -12,7 +12,7 @@ export const CreatingModal = (props: any) => {
     const onChangeText = (e: any): void => setTodoText(e.target.value)
     const onChangeUrgency = (e: any): void => setUrgency(e.target.value)
 
-    const changeMode = () => {
+    const editModeOff = () => {
       props.setMode(false)
     }
     //const id = nanoid()
@@ -31,7 +31,7 @@ export const CreatingModal = (props: any) => {
               urgency: +urgency
             }))
             setTodoText('')
-            changeMode()
+            editModeOff()
           }}
         >
           <label>
@@ -49,7 +49,7 @@ export const CreatingModal = (props: any) => {
             </select>
           </label>
           <div className="modal__buttons">
-            <button onClick={changeMode}>Cancel</button>
+            <button onClick={editModeOff}>Cancel</button>
             <button type="submit">Add Todo</button>           
           </div>
         </form>

@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { todosAPI } from '../api/api'
-import { store } from './store'
-import { useAppDispatch } from '../hooks/hooks'
 
 
 export interface Todo {
@@ -71,6 +69,23 @@ export const fetchNewTodo = createAsyncThunk<
   }
 )
 
+export const fetchAlterTodo = createAsyncThunk<
+  Todo, 
+  Todo, 
+    { 
+      rejectValue: FetchTodosError 
+    }
+  >('todos/fetchAlterTodo', async (todoUserParams, { rejectWithValue }) => {
+    try {
+      const { text, isCompleted, urgency, id }: Todo = todoUserParams
+      const response = await todosAPI.alterTodo(text, isCompleted, urgency, id!)
+      return response.data.todo     
+    } catch (err) {
+
+      }
+  }
+)
+
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
@@ -89,6 +104,10 @@ const todosSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchNewTodo.fulfilled, (state, {payload}) => {
       state.push(payload)
+      console.log(payload)
+    })
+    builder.addCase(fetchAlterTodo.fulfilled, (state, {payload}) => {
+      //state.push(payload)
       console.log(payload)
     })
   } 

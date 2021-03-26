@@ -15,8 +15,7 @@ export const Board = () => {
   const [mode, setMode] = useState(false)
 
   let tasks = useAppSelector(state => state.taskList)
-  
-  //const propsTasks = tasks
+
   let mapTasks: Array<any> = []
   if (tasks.length > 0) {
     mapTasks = tasks.map((task: Todo) => {

@@ -1,6 +1,5 @@
 button {
   cursor: pointer;
-
 }
 
 .board {
@@ -57,11 +56,24 @@ button {
   background-color: #7fffd4;
   border: 1px solid #808080;
   border-radius: 5px;
+}
+
+.task-item__regular-mode {
   display: flex;
 }
 
 .task-item__text {
   line-height: 50%;
+}
+
+.task-item__edit-mode {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.task-item__edit-form {
+  width: 90%;
+  margin: auto;
 }
 
 .modal {

@@ -53,6 +53,30 @@ export const todosAPI = {
         'sessionId':`${sessionId}`
       }
     })
+  },
+  alterTodo(text: string, isCompleted: boolean, urgency: number, id: string){
+    return axios.patch(`${baseUrl}todos/${id}`, {
+      text,
+      isCompleted,
+      urgency
+    },
+    {
+      headers: {
+        'Content-Type':'application/json',
+        'sessionId':`${sessionId}`
+      }
+    })
+  },
+  deleteTodo(id: string){
+    return axios.delete(`${baseUrl}${id}`, {
+      id
+    },
+    {
+      headers: {
+        'Content-Type':'application/json',
+        'sessionId':`${sessionId}`
+      }
+    })
   }
 }
 
