@@ -11,7 +11,7 @@ export interface Todo {
   urgency: number
 }
 
-interface Response {
+/* interface Response {
   "status": number,
   "todo": {
     "id": string,
@@ -21,7 +21,7 @@ interface Response {
     "isCompleted": boolean,
     "urgency": number
   }
-}
+} */
 
 interface FetchTodosError {
   status: string

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Todo } from '../../redux/todosSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import { useAppDispatch } from '../../hooks/hooks'
 import { fetchAlterTodo } from '../../redux/todosSlice'
 import done from '../../img/done.svg'
 import inProgress from '../../img/in_progress.svg'
@@ -48,7 +48,7 @@ export const TaskItem = (props: Todo) => {
                     editModeOff(e)
                     dispatch(fetchAlterTodo({
                         text: changedText,
-                        isCompleted: false,
+                        isCompleted: status,
                         urgency: +urgency,
                         id: currentId
                     }))
