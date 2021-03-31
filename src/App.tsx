@@ -16,8 +16,8 @@ export const App = (props: any) => {
   useEffect(() => {
     dispatch(getSessionId());
     console.log(dispatch(getSessionId()))
-  }, [])
-  
+  }, [dispatch])
+  console.log('App')
   return (
     <div className="app">
       <Board {...props} />

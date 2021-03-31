@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit'
 import { todosAPI } from '../api/api'
 
 
@@ -104,11 +104,21 @@ const todosSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchNewTodo.fulfilled, (state, {payload}) => {
       state.push(payload)
-      console.log(payload)
+      
     })
     builder.addCase(fetchAlterTodo.fulfilled, (state, {payload}) => {
-      //state.push(payload)
-      console.log(payload)
+      state.find(todo => {
+        if (todo) {
+
+        }
+        const { text, urgency, isCompleted } = payload
+        Object.assign(todo, { text, urgency, isCompleted })
+        //console.log(current(todo)) 
+        //console.log(todo.id) is equal console.log(payload.id) 
+        //console.log(todo) some bullshit - proxy
+        //console.log(payload.id)
+      })
+      //console.log(payload)
     })
   } 
 })

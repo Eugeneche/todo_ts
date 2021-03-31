@@ -1,6 +1,6 @@
 const axios = require('axios').default
 
-const baseUrl = 'http://localhost:9000/api/'
+const baseUrl = 'https://fierce-shelf-64940.herokuapp.com/api/'
 let sessionId: null | string = null
 
 export const sessionAPI = {
