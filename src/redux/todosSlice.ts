@@ -11,18 +11,6 @@ export interface Todo {
   urgency: number
 }
 
-/* interface Response {
-  "status": number,
-  "todo": {
-    "id": string,
-    "created": string,
-    "updated": string,
-    "text": string,
-    "isCompleted": boolean,
-    "urgency": number
-  }
-} */
-
 interface FetchTodosError {
   status: string
   message: string;
@@ -86,44 +74,44 @@ export const fetchAlterTodo = createAsyncThunk<
   }
 )
 
+export const fetchDeleteTodo = createAsyncThunk<
+  any, 
+  string, 
+    { 
+      rejectValue: FetchTodosError 
+    }
+  >('todos/fetchDeleteTodo', async (userId, { rejectWithValue }) => {
+    try {
+      const id = userId
+      const response = await todosAPI.deleteTodo(id)
+      return response.data.todos    
+    } catch (err) {
+      
+      }
+  }
+)
+
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
-  reducers: {
-/*     addTask: (state, action: PayloadAction<Todo>) => {
-      //state.push(action.payload)
-      console.log(action.payload)
-    },
-    updateTask(state, action) {
-      const todo = state.find(todo => todo.id === action.payload)
-      if (todo) {
-        todo.isCompleted = !todo.isCompleted
-      }
-    } */
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchNewTodo.fulfilled, (state, {payload}) => {
-      state.push(payload)
-      
+      state.push(payload)     
     })
     builder.addCase(fetchAlterTodo.fulfilled, (state, {payload}) => {
-      state.find(todo => {
-        if (todo) {
-
+      const changedTodo = state.find(todo => todo.id === payload.id)
+        if (changedTodo) {
+          const { text, urgency, isCompleted } = payload
+          Object.assign(changedTodo, { text, urgency, isCompleted })
         }
-        const { text, urgency, isCompleted } = payload
-        Object.assign(todo, { text, urgency, isCompleted })
-        //console.log(current(todo)) 
-        //console.log(todo.id) is equal console.log(payload.id) 
-        //console.log(todo) some bullshit - proxy
-        //console.log(payload.id)
-      })
-      //console.log(payload)
+    })
+    builder.addCase(fetchDeleteTodo.fulfilled, (state, {payload}) => {
+      return state = Object.values(payload)
     })
   } 
 })
 
 export default todosSlice.reducer
-//export const { addTask, updateTask } = todosSlice.actions
 
 export {}

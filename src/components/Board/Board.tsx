@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TaskItem } from '../TaskItem/TaskItem'
 import { CreatingModal } from '../CreatingModal/CreatingModal'
 import { Todo } from '../../redux/todosSlice'
@@ -16,13 +16,24 @@ export const Board = () => {
 
   let tasks = useAppSelector(state => state.taskList)
 
+
   let mapTasks: Array<any> = []
-  if (tasks.length > 0) {
-    mapTasks = tasks.map((task: Todo) => {
-      return <div key={task.id} className="board__divider">
-        <TaskItem id={task.id} text={task.text} isCompleted={task.isCompleted} urgency={task.urgency} />
-      </div>})
-  } 
+ 
+  const todoRender = () => {
+    if (tasks.length > 0) {
+      mapTasks = tasks.map((task: Todo) => {
+        return <div key={task.id} className="board__divider">
+          <TaskItem id={task.id} text={task.text} isCompleted={task.isCompleted} urgency={task.urgency} />
+        </div>})
+    } 
+    console.log('Board')
+  }
+
+  todoRender()
+
+/*   useEffect(() => {
+    todoRender()
+  }, [todoRender]) */
 
   return (
     <div className="board board__main">

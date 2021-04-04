@@ -2,6 +2,14 @@ button {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: flex;
+}
+
 .board {
   background-color: #f0e68c;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
@@ -62,8 +70,17 @@ button {
   display: flex;
 }
 
-.task-item__text {
-  line-height: 50%;
+.task-item__main {
+  flex-grow: 1;
+  align-self: center;
+}
+
+.task-item__main--urgency {
+  font-size: 14px;
+}
+
+.task-item__main--text {
+  font-size: 20px;
 }
 
 .task-item__edit-mode {

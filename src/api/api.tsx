@@ -1,6 +1,7 @@
 const axios = require('axios').default
 
-const baseUrl = 'https://fierce-shelf-64940.herokuapp.com/api/'
+/* const baseUrl = 'https://fierce-shelf-64940.herokuapp.com/api/' */
+const baseUrl = 'http://localhost:9000/api/'
 let sessionId: null | string = null
 
 export const sessionAPI = {
@@ -68,9 +69,7 @@ export const todosAPI = {
     })
   },
   deleteTodo(id: string){
-    return axios.delete(`${baseUrl}${id}`, {
-      id
-    },
+    return axios.delete(`${baseUrl}todos/${id}`,
     {
       headers: {
         'Content-Type':'application/json',
